@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ManajemenMart UMY — Marketplace UMKM</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">📊</span>
+      <div>
+        <h1>ManajemenMart UMY</h1>
+        <p>Marketplace UMKM — Prodi Manajemen</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#beranda">Beranda</a>
+      <a href="#produk">Produk</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" type="button">
+      🛒 Keranjang <span id="cartCount">0</span>
+    </button>
+  </header>
+
+  <section id="beranda" class="hero">
+    <div class="hero-text">
+      <h2>Platform Jual Beli UMKM Berbasis Manajemen & AI</h2>
+      <p>
+        Website ini dibuat untuk mata kuliah <strong>Dasar-dasar AI</strong> —
+        menggabungkan konsep <em>manajemen bisnis</em> (inventori, penjualan, kategori)
+        dengan fitur <em>kecerdasan buatan sederhana</em> (chatbot & rekomendasi produk).
+      </p>
+      <a href="#produk" class="btn-primary">Lihat Produk</a>
+    </div>
+    <div class="hero-features">
+      <div class="feature-card">📦 Manajemen produk UMKM</div>
+      <div class="feature-card">🤖 Asisten AI (chatbot)</div>
+      <div class="feature-card">✨ Rekomendasi produk pintar</div>
+    </div>
+  </section>
+
+  <section id="produk" class="section">
+    <h2>Katalog Produk UMKM</h2>
+    <p class="section-desc">Pilih kategori atau cari produk. Klik "Tambah" untuk memasukkan ke keranjang.</p>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="Cari produk..." />
+      <select id="categoryFilter">
+        <option value="semua">Semua kategori</option>
+        <option value="makanan">Makanan & Minuman</option>
+        <option value="fashion">Fashion & Kerajinan</option>
+        <option value="jasa">Jasa & Konsultasi</option>
+        <option value="digital">Produk Digital</option>
+      </select>
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+  </section>
+
+  <section class="section recommendations">
+    <h2>✨ Rekomendasi Untuk Anda (AI)</h2>
+    <p class="section-desc">Berdasarkan kategori yang sering Anda lihat dan isi keranjang.</p>
+    <div id="recommendGrid" class="product-grid"></div>
+  </section>
+
+  <section id="dashboard" class="section dashboard">
+    <h2>Dashboard Manajemen (Simulasi)</h2>
+    <p class="section-desc">Ringkasan bisnis — relevan dengan prodi Manajemen.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-label">Total produk</span>
+        <span class="stat-value" id="statProducts">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Item di keranjang</span>
+        <span class="stat-value" id="statCart">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Estimasi omzet keranjang</span>
+        <span class="stat-value" id="statRevenue">Rp 0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Kategori terlaris (simulasi)</span>
+        <span class="stat-value stat-small" id="statTopCategory">—</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang" class="section about">
+    <h2>Tentang Proyek</h2>
+    <ul>
+      <li><strong>Program studi:</strong> Manajemen, Universitas Muhammadiyah Yogyakarta</li>
+      <li><strong>Mata kuliah:</strong> Dasar-dasar AI</li>
+      <li><strong>Konsep manajemen:</strong> marketplace, katalog produk, keranjang, dashboard penjualan</li>
+      <li><strong>Konsep AI:</strong> chatbot berbasis aturan (rule-based) dan sistem rekomendasi berbasis skor</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>ManajemenMart UMY © 2026 — Tugas Mata Kuliah Dasar-dasar AI</p>
+    <p id="liveBadge" class="live-badge hidden">🌐 Website aktif di internet</p>
+  </footer>
+
+  <aside id="cartPanel" class="cart-panel hidden">
+    <div class="cart-header">
+      <h3>Keranjang Belanja</h3>
+      <button type="button" id="closeCart" aria-label="Tutup">✕</button>
+    </div>
+    <ul id="cartList" class="cart-list"></ul>
+    <p class="cart-total">Total: <strong id="cartTotal">Rp 0</strong></p>
+    <button type="button" class="btn-primary btn-block" id="checkoutBtn">Checkout (simulasi)</button>
+  </aside>
+
+  <button type="button" class="chat-fab" id="chatFab" title="Asisten AI">🤖</button>
+  <aside id="chatPanel" class="chat-panel hidden">
+    <div class="chat-header">
+      <h3>Asisten AI ManajemenMart</h3>
+      <button type="button" id="closeChat" aria-label="Tutup">✕</button>
+    </div>
+    <div id="chatMessages" class="chat-messages"></div>
+    <form id="chatForm" class="chat-form">
+      <input type="text" id="chatInput" placeholder="Tanya: harga, rekomendasi, cara beli..." autocomplete="off" />
+      <button type="submit">Kirim</button>
+    </form>
+  </aside>
+
+  <script src="js/products.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
